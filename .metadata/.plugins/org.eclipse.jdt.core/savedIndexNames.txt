@@ -1,6 +1,5 @@
 INDEX VERSION 1.126+C:\Users\Zhao\ProjetGestionCours\Git-Hub-Navigateur-de-fichiers-ecole\.metadata\.plugins\org.eclipse.jdt.core
 1159660367.index
-2834739370.index
 3827776813.index
 1222229280.index
 3176882768.index
