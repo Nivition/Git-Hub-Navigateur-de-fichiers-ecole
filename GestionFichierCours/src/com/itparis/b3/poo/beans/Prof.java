@@ -15,6 +15,10 @@ public class Prof {
 		this.prenomProf = prenomProf;
 		this.mailProf = mailProf;
 	}
+	
+	public Prof(){
+		this(0,"","","");
+	}
 
 	public int getIdProf() {
 		return idProf;
