@@ -17,6 +17,10 @@ public class Eleve {
 		this.mailEleve = mailEleve;
 		this.idClasse = idClasse;
 	}
+	
+	public Eleve(){
+		this(0,"","","",0);
+	}
 
 	public int getIdEleve() {
 		return idEleve;
