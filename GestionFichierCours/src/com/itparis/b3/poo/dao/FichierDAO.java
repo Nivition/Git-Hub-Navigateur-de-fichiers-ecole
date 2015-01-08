@@ -73,4 +73,60 @@ public class FichierDAO {
 		return listeFichiersTemp;
 	}
 
+	public static int deleteFichierByIdFichier(int idFichier) {
+		int result = -1;
+		DBAction.DBConnexion();
+
+		String req = "DELETE FROM Fichier  WHERE idFichier =" + idFichier;
+		try {
+			result = DBAction.getStm().executeUpdate(req);
+			System.out.println("Requete executee");
+			
+		} catch (SQLException ex) {
+			result = - ex.getErrorCode();
+		}
+		DBAction.DBClose();
+		return result;
+	}
+	
+	public static Fichier updateFichier(int idFichier, String nomFichier){
+		Fichier fichierTemp = new Fichier(0,null,null,0);
+		try {
+
+			String req = "UPDATE Fichier SET nomFichier = \"" + nomFichier+"\" WHERE IdFichier = \"" + idFichier+"\"";
+			DBAction.DBConnexion();
+			DBAction.setRes(DBAction.getStm().executeQuery(req));
+			fichierTemp.setIdFichier(DBAction.getRes().getInt(1));
+			fichierTemp.setNomFichier(DBAction.getRes().getString(2));
+			fichierTemp.setDateFichier(DBAction.getRes().getString(3));
+			fichierTemp.setIdCours(DBAction.getRes().getInt(4));
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+		DBAction.DBClose();
+		return fichierTemp;
+	}
+	
+	
+	public static Fichier addFichier(int idFichier,String nomFichier,String dateFichier,int idCours) throws SQLException{
+		Fichier fichierTemp = new Fichier(idFichier,nomFichier,dateFichier,idCours);
+		try {
+
+			DBAction.DBConnexion();
+			String req = "INSERT INTO Fichier VALUES ('" + idFichier +"','"+nomFichier+"','"+dateFichier+"','"+idCours+"')";
+			DBAction.setRes(DBAction.getStm().executeQuery(req));
+			fichierTemp.setIdFichier(DBAction.getRes().getInt(1));
+			fichierTemp.setNomFichier(DBAction.getRes().getString(2));
+			fichierTemp.setDateFichier(DBAction.getRes().getString(3));
+			fichierTemp.setIdCours(DBAction.getRes().getInt(4));
+			
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+		DBAction.DBClose();
+		return fichierTemp;
+		
+	}
+	
+	
 }
