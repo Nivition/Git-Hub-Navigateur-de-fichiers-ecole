@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import junit.framework.TestCase;
 
 import com.itparis.b3.poo.beans.Eleve;
-import com.itparis.b3.poo.beans.Fichier;
 import com.itparis.b3.poo.dao.EleveDAO;
 
 public class EleveDAOTest extends TestCase {
